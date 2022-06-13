@@ -21,8 +21,6 @@ const torus = new THREE.Mesh(geometry,Material);
 const ponitLight = new THREE.PointLight(0xffffff);
 ponitLight.position.set(25,25,25);
 const ambientLight = new THREE.AmbientLight(0xffffff);
-const lightHelper = new THREE.PointLightHelper(ponitLight);
-const GridHelper = new THREE.GridHelper(200,50);
 const spaceTexture = new THREE.TextureLoader().load('space.jpg');
 const KTexture = new THREE.TextureLoader().load('logo-2.jpg');
 const IIST = new THREE.Mesh(
@@ -48,8 +46,6 @@ scene.add(IIST);
 scene.add(ambientLight);
 scene.add(ponitLight);
 scene.add(torus);
-scene.add(lightHelper);
-scene.add(GridHelper)
 renderer.render(scene,camera);
 
 function addStar(){
@@ -68,13 +64,13 @@ function moveCamera() {
   Moon.rotation.y += 0.005;
   Moon.rotation.z += 0.05;
 
-  IIST.rotation.x += 0.05;
-  IIST.rotation.y += 0.05;
+  IIST.rotation.y += 0.02;
+  IIST.rotation.z += 0.02;
  
 
-  camera.position.z = t * -0.019;
-  camera.position.x = t * -0.0001;
-  camera.rotation.y = t * -0.0001;
+  camera.position.z = t * -0.01;
+  camera.position.x = t * -0.0002;
+  camera.rotation.y = t * -0.0002;
 }
 
 document.body.onscroll = moveCamera;
